@@ -19,14 +19,14 @@ learn about:
 If you're brand new to OpenCL, I _highly_ recommend this very short series on 
 YouTube by Justin Hensley of AMD:
 
-<iframe 
+<center><iframe 
   width="560" 
   height="315" 
   src="https://www.youtube.com/embed/aKtpZuokeEk" 
   frameborder="0" 
   gesture="media" 
   allow="encrypted-media" 
-  allowfullscreen></iframe>
+  allowfullscreen></iframe></center>
 
 It has an early-90s Microsoft-instructional-video vibe, but aside from that, 
 it's really a great overview.
@@ -76,3 +76,10 @@ available from Apple!
 
 If you're on Linux or Windows (or other), you'll probably have to install OpenCL
 yourself. I can't provide much guidance here.
+
+
+~~~~{#mycode .haskell}
+main :: IO ()
+main = do
+    putStrLn "Hello World"
+~~~~

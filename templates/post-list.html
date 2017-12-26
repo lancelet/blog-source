@@ -1,7 +1,18 @@
-<ul>
-    $for(posts)$
-        <li>
-            <a href="$url$">$title$</a> - $date$
-        </li>
-    $endfor$
-</ul>
+<div class="container">
+    <table class="table postlist table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Stardate</th>
+            </tr>
+        </thead>
+        <tbody>
+            $for(posts)$
+                <tr>
+                    <td><a href="$url$">$title$</a></td>
+                    <td>$date$</td>
+                </tr>
+            $endfor$
+        </tbody>
+    </table>
+</div>

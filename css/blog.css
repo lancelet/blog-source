@@ -1,53 +1,18 @@
-/*
- * Globals
- */
-
-@media (min-width: 48em) {
-  html {
-    font-size: 18px;
-  }
-}
-
-/*
-body {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  color: #555;
-}
-*/
-
 h1,
-.h1,
 h2,
-.h2,
 h3,
-.h3,
 h4,
-.h4,
 h5,
-.h5,
-h6,
-.h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  color: #333;
+h6 {
+    margin-top: 1em;
+    color: #777;
+    font-variant: small-caps;
 }
-
-
-/*
- * Override Bootstrap's default container.
- */
-
-.container {
-  max-width: 60rem;
-}
-
 
 /*
  * Masthead for nav
  */
-
 .blog-masthead {
-  margin-bottom: 3rem;
   background-color: #343a40 !important;
   box-shadow: inset 0 -.1rem .25rem rgba(0,0,0,.1);
 }
@@ -58,6 +23,7 @@ h6,
   padding: 1rem;
   font-weight: 500;
   color: #cdddeb;
+  font-variant: small-caps;
 }
 .nav-link:hover,
 .nav-link:focus {
@@ -84,75 +50,28 @@ h6,
 }
 
 
-/*
- * Blog name and description
- */
-
-.blog-header {
-  padding-bottom: 1.25rem;
-  margin-bottom: 2rem;
-  border-bottom: .05rem solid #eee;
-}
-.blog-title {
-  margin-bottom: 0;
-  font-size: 2rem;
-  font-weight: 400;
-}
-.blog-description {
-  font-size: 1.1rem;
-  color: #999;
-}
-
-@media (min-width: 40em) {
-  .blog-title {
-    font-size: 3.5rem;
-  }
-}
-
-
-/*
- * Main column and sidebar layout
- */
-
-/* Sidebar modules for boxing content */
-.sidebar-module {
-  padding: 1rem;
-}
-.sidebar-module-inset {
-  padding: 1rem;
-  background-color: #f5f5f5;
-  border-radius: .25rem;
-}
-.sidebar-module-inset p:last-child,
-.sidebar-module-inset ul:last-child,
-.sidebar-module-inset ol:last-child {
-  margin-bottom: 0;
-}
-
-
-/* Pagination */
-.blog-pagination {
-  margin-bottom: 4rem;
-}
-.blog-pagination > .btn {
-  border-radius: 2rem;
-}
-
 
 /*
  * Blog posts
  */
 
-.blog-post {
-  margin-bottom: 4rem;
+.blog-post-title-block {
+    border-bottom: 2px solid #AAA;
+    padding-top: 0.5em;
+    padding-bottom: 0.7em;
+    margin-bottom: 2em;
+    padding-left: 0.1em;
 }
 .blog-post-title {
-  margin-bottom: .25rem;
-  font-size: 2.5rem;
+    color: black;
+    margin-bottom: .25rem;
+    font-size: 2.5rem;
+    margin-top: 0.5em;
 }
-.blog-post-meta {
-  margin-bottom: 1.25rem;
-  color: #999;
+.blog-post-byline {
+    color: #999;
+    border-left: solid 2em #EEE;
+    padding-left: 1ex;
 }
 
 
@@ -161,12 +80,50 @@ h6,
  */
 
 .blog-footer {
-  padding: 2.5rem 0;
-  color: #999;
-  text-align: center;
-  background-color: #f9f9f9;
-  border-top: .05rem solid #e5e5e5;
+    margin-top: 2em;
+    padding: 2.5rem 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
 }
 .blog-footer p:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
+}
+
+.postlist {
+    border: none;
+    width: auto;
+    background-color: #F9F9F9;
+}
+table.postlist {
+    border-top: solid 2px;
+    border-bottom: solid 2px;
+    border-color: #e9ecef;
+}
+.postlist tr {
+    border: none;
+    padding: 0.25rem;
+}
+.postlist thead > tr:first-child > th {
+    padding-top: 0.5em;
+}
+.postlist tr:first-child > td {
+    padding-top: 0.5em;
+}
+.postlist tr:last-child > td {
+    padding-bottom: 0.5em;
+}
+.postlist th {
+    border: none;
+    padding: 0.25rem;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-variant: small-caps;
+}
+.postlist td {
+    border: none;
+    padding: 0.25rem;
+    padding-left: 1em;
+    padding-right: 1em;
 }
