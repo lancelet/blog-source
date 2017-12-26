@@ -15,12 +15,6 @@ main = hakyll $ do
         route   idRoute
         compile compressCssCompiler
 
-    match (fromList ["about.rst", "contact.markdown"]) $ do
-        route   $ setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
-
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
@@ -28,14 +22,32 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
 
+    match "about.md" $ do
+        let
+            aboutCtx = constField "page-about" "x" `mappend` defaultContext
+        route   $ setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/default.html" aboutCtx
+            >>= relativizeUrls
+
+    match "contact.md" $ do
+        let
+            contactCtx = constField "page-contact" "x" `mappend` defaultContext
+        route   $ setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/default.html" contactCtx
+            >>= relativizeUrls
+
     create ["archive.html"] $ do
+        let
+            archiveCtx' = constField "page-archive" "x" `mappend` defaultContext
         route idRoute
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*"
             let archiveCtx =
                     listField "posts" postCtx (return posts) `mappend`
                     constField "title" "Archives"            `mappend`
-                    defaultContext
+                    archiveCtx'
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
@@ -49,7 +61,8 @@ main = hakyll $ do
             posts <- recentFirst =<< loadAll "posts/*"
             let indexCtx =
                     listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Home"                `mappend`
+                    constField "page-home" "x"               `mappend`
+                    constField "no-heading" "x"              `mappend`
                     defaultContext
 
             getResourceBody
