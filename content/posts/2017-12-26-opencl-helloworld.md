@@ -287,8 +287,8 @@ writeVectorToBuffer state bufIn inputData
 
 ### Run the kernel
 
-To run the compiled kernel, we hook up the buffers to the kernel arguments with
-and then enqueue the kernel to be run.
+To run the compiled kernel, we hook up the buffers to the kernel arguments and
+then enqueue the kernel to be run.
 
 ~~~~ {#kernel-run .haskell}
 -- (... inside an IO do block ...)
