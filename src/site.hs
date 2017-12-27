@@ -2,11 +2,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
+import           Hakyll.Core.Configuration
 
 
 --------------------------------------------------------------------------------
 main :: IO ()
-main = hakyll $ do
+main = hakyllWith (defaultConfiguration { providerDirectory = "./content" }) $ do
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
