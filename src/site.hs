@@ -24,7 +24,7 @@ main = hakyllWith (defaultConfiguration { providerDirectory = "./content" }) $ d
         compile $ do
             posts <- recentFirst =<< loadAll pattern
             let ctx = constField "title" title
-                      `mappend` listField "posts" postCtx (return posts)
+                      `mappend` listField "posts" (postCtx tags) (return posts)
                       `mappend` defaultContext
             makeItem ""
                 >>= loadAndApplyTemplate "templates/tag.html" ctx
@@ -34,8 +34,8 @@ main = hakyllWith (defaultConfiguration { providerDirectory = "./content" }) $ d
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/post.html"    postCtx
-            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= loadAndApplyTemplate "templates/post.html"    (postCtx tags)
+            >>= loadAndApplyTemplate "templates/default.html" (postCtx tags)
             >>= relativizeUrls
 
     match "about.md" $ do
@@ -61,7 +61,7 @@ main = hakyllWith (defaultConfiguration { providerDirectory = "./content" }) $ d
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*"
             let archiveCtx =
-                    listField "posts" postCtx (return posts) `mappend`
+                    listField "posts" (postCtx tags) (return posts) `mappend`
                     constField "title" "Archives"            `mappend`
                     archiveCtx'
 
@@ -76,9 +76,9 @@ main = hakyllWith (defaultConfiguration { providerDirectory = "./content" }) $ d
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*"
             let indexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    constField "page-home" "x"               `mappend`
-                    constField "no-heading" "x"              `mappend`
+                    listField "posts" (postCtx tags) (return posts) `mappend`
+                    constField "page-home" "x"                      `mappend`
+                    constField "no-heading" "x"                     `mappend`
                     defaultContext
 
             getResourceBody
@@ -90,8 +90,8 @@ main = hakyllWith (defaultConfiguration { providerDirectory = "./content" }) $ d
 
 
 --------------------------------------------------------------------------------
-postCtx :: Context String
-postCtx =
+postCtx :: Tags -> Context String
+postCtx tags =
     dateField "date" "%Y-%m-%d" `mappend`
     tagsField "tags" tags       `mappend`
     defaultContext
