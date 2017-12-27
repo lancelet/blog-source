@@ -1,8 +1,8 @@
 ---
 title: Getting Started with OpenCL in Haskell
 published-on: 2017-12-26
-author: Jonathan Merritt <j.s.merritt@gmail.com>
-keywords: OpenCL, Haskell, GPU, tutorial
+author: Jonathan Merritt
+tags: OpenCL, Haskell, GPU, tutorial
 ---
 
 ## Introduction
