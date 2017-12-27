@@ -7,10 +7,10 @@ keywords: OpenCL, Haskell, GPU, tutorial
 
 ## Introduction
 
-[OpenCL][OPENCL_WIKIPEDIA] provides a powerful way to interface with GPUs, CPUs,
-and other hardware. Over the last few weeks, I've found that Haskell has good
-support for OpenCL. For a beginner, there are really three different things to
-learn about:
+[OpenCL][OPENCL_WIKIPEDIA] provides an abstracted way to interface with GPUs,
+CPUs, and other hardware. Over the last few weeks, I've found that Haskell has
+good support for OpenCL. For a beginner, there are really three different things
+to learn about:
 
   - OpenCL execution model
   - OpenCL C dialect
@@ -19,22 +19,23 @@ learn about:
 If you're brand new to OpenCL, I _highly_ recommend this very short series on 
 YouTube by Justin Hensley of AMD:
 
-<center><iframe 
+<p><center><iframe 
   width="560" 
   height="315" 
   src="https://www.youtube.com/embed/aKtpZuokeEk" 
   frameborder="0" 
   gesture="media" 
   allow="encrypted-media" 
-  allowfullscreen></iframe></center>
+  allowfullscreen></iframe></center></p>
 
 It has an early-90s Microsoft-instructional-video vibe, but aside from that, 
 it's really a great overview.
 
 ## Which OpenCL package?
 
-There are quite a few [OpenCL packages on Hackage][HKG_OPENCL]. I'll try to
-summarise them here:
+There are several [OpenCL packages on Hackage][HKG_OPENCL], and it's not clear
+which you should use (**Hint: use [`OpenCL`][OPENCL]**) .I'll try to summarise
+them here:
 
   - `OpenCLRaw` - the original, low-level, thin binding to the OpenCL C library.
     It exposes much of the API using types from `Foreign.C.Types`. Consequently,
@@ -83,3 +84,5 @@ main :: IO ()
 main = do
     putStrLn "Hello World"
 ~~~~
+
+Changify
