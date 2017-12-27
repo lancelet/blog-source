@@ -1,3 +1,18 @@
+.repl pre {
+    color: #DDD;
+    background-color: #333;
+    padding-top: 1ex;
+    padding-bottom: 1ex;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 1em;
+    margin-bottom: 1rem;
+}
+
+.sourceCode {
+    font-size: 94%;
+}
+
 div.sourceCode {
     background-color: #f0f0f0;
     padding-top: 1ex;
@@ -5,6 +20,7 @@ div.sourceCode {
     padding-left: 1em;
     padding-right: 1em;
     border-radius: 1em;
+    margin-bottom: 1rem;
 }
 pre.sourceCode {
     margin: 0;

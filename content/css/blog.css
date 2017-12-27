@@ -9,6 +9,18 @@ h6 {
     font-variant: small-caps;
 }
 
+dl {
+    margin-left: 1ex;
+}
+
+dt {
+    color: #777;
+}
+
+dd {
+    margin-left: 2em;
+}
+
 /*
  * Masthead for nav
  */
