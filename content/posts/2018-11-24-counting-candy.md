@@ -220,7 +220,7 @@ another functional pattern which is extremely common:
 
 ~~~~{.haskell}
 instance Semigroup JellyCount where
-    -- how to we smash two together?
+    -- how do we smash two together?
     JellyCount a b <> JellyCount c d = JellyCount (a + c) (b + d)
 
 instance Monoid JellyCount where
